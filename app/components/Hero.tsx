@@ -216,7 +216,7 @@ export default function Hero() {
                 },
               }}
             >
-              Get In Touch
+              Contact Me
               <Box
                 component="svg"
                 aria-hidden
