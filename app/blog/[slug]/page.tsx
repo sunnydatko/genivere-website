@@ -691,6 +691,19 @@ export default async function BlogPostPage({
               >
                 · {post.readTime} min read
               </Typography>
+              {post.date && (
+                <Typography
+                  sx={{
+                    color: "grey.600",
+                    fontFamily: "var(--font-inter), sans-serif",
+                    fontSize: 12,
+                    letterSpacing: "0.18em",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  · {post.date}
+                </Typography>
+              )}
             </Box>
 
             <Typography

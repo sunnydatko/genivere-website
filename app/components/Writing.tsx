@@ -159,6 +159,19 @@ export default function Writing() {
                   >
                     · {post.readTime} min read
                   </Typography>
+                  {post.date && (
+                    <Typography
+                      sx={{
+                        fontFamily: "var(--font-inter), sans-serif",
+                        fontSize: 11,
+                        letterSpacing: "0.18em",
+                        textTransform: "uppercase",
+                        color: "grey.700",
+                      }}
+                    >
+                      · {post.date}
+                    </Typography>
+                  )}
                 </Box>
 
                 {/* Title */}

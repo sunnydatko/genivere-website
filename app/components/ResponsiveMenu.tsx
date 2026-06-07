@@ -36,7 +36,7 @@ export default function ResponsiveMenu() {
       </Box>
       <Divider />
       <List>
-        {navItems.map(({ name, href }) => (
+        {[...navItems, { name: "Contact", href: "/#contact" }].map(({ name, href }) => (
           <ListItem key={name} disablePadding>
             <ListItemButton
               component="a"
