@@ -3,7 +3,7 @@
 
   # Eclipse
 
-  **A space-dark portfolio template built for AI developers, technical founders, and engineers with something to say.**
+  **A cinematic portfolio template built for AI developers, technical founders, and engineers building amibitious things.**
 
   Built with Next.js 16 · React 19 · Material UI 9 · TypeScript
 
