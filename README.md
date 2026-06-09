@@ -1,7 +1,7 @@
 <div align="center">
-  <img src="app/icon.svg" alt="Eclipse" width="64" height="64" />
+  <img src="app/icon.svg" alt="Genivere" width="64" height="64" />
 
-  # Eclipse
+  # Genivere
 
   **A cinematic portfolio template built for AI developers, technical founders, and engineers building amibitious things.**
 
@@ -18,7 +18,7 @@
 
 ## Preview
 
-![Eclipse preview](public/screenshot.png)
+![Genivere preview](public/screenshot.png)
 
 ---
 
