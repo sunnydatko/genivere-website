@@ -13,6 +13,13 @@ const fadeUp = keyframes`
   to   { opacity: 1; transform: translateY(0);    filter: blur(0px); }
 `;
 
+const twinkle = keyframes`
+  0%, 100% { transform: scale(1)    rotate(0deg);   filter: drop-shadow(0 0 0px transparent); }
+  25%       { transform: scale(1.18) rotate(12deg);  filter: drop-shadow(0 0 7px rgba(255,220,100,0.75)); }
+  50%       { transform: scale(0.92) rotate(0deg);   filter: drop-shadow(0 0 2px rgba(255,220,100,0.3)); }
+  75%       { transform: scale(1.12) rotate(-9deg);  filter: drop-shadow(0 0 9px rgba(255,220,100,0.85)); }
+`;
+
 const anim = (delay: string) => ({
   animation: `${fadeUp} 0.9s cubic-bezier(0.22, 1, 0.36, 1) ${delay} forwards`,
   opacity: 0,
@@ -162,6 +169,8 @@ export default function Hero() {
                 verticalAlign: "middle",
                 lineHeight: 1,
                 mb: { xs: "6px", md: "10px" },
+                animation: `${twinkle} 3.2s ease-in-out 1.8s infinite`,
+                "@media (prefers-reduced-motion: reduce)": { animation: "none" },
               }}
             >
               ✦
