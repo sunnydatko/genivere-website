@@ -6,10 +6,10 @@ const theme = createTheme({
   palette: {
     mode: "dark",
     primary: {
-      // Lavender-purple — matches the fairy's iridescent wings
-      light: "#BBA8E2",
-      main: "#8257B5",
-      dark: "#4D2E6B",
+      // Indigo-violet — matches the cool midnight forest purples in the hero
+      light: "#A898E8",
+      main: "#7055D4",
+      dark: "#3D2590",
     },
     secondary: {
       // Warm amber — matches the candlelight in the forest scene
@@ -23,10 +23,10 @@ const theme = createTheme({
       dark: "#C97A17",
     },
     info: {
-      // Cool blue-teal — echoes the iridescent wing colour in the hero
-      light: "#93C5E8",
-      main: "#5A9FD4",
-      dark: "#3A7AB0",
+      // Electric blue — matches the glowing mushrooms and particles in the hero
+      light: "#8DD4FF",
+      main: "#4DAAFF",
+      dark: "#2A7ACC",
     },
     background: {
       // Warm dark — deep forest night, slight purple undertone
@@ -89,13 +89,13 @@ const theme = createTheme({
     MuiChip: {
       styleOverrides: {
         outlined: {
-          borderColor: "rgba(90,159,212,0.45)",
-          color: "rgba(147,197,232,0.80)",
+          borderColor: "rgba(77,170,255,0.45)",
+          color: "rgba(141,212,255,0.80)",
           transition: "border-color 0.25s, color 0.25s, background-color 0.25s",
           "&:hover": {
-            borderColor: "rgba(90,159,212,0.65)",
-            color: "#93C5E8",
-            backgroundColor: "rgba(90,159,212,0.06)",
+            borderColor: "rgba(77,170,255,0.65)",
+            color: "#8DD4FF",
+            backgroundColor: "rgba(77,170,255,0.06)",
           },
         },
       },
@@ -105,7 +105,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           textDecoration: "none",
-          color: "#BBA8E2",
+          color: "#A898E8",
           transition: "color 0.3s",
           position: "relative",
           paddingBottom: "3px",
@@ -117,13 +117,13 @@ const theme = createTheme({
             width: "100%",
             height: "2px",
             borderRadius: "4px",
-            backgroundColor: "#D4C4F0",
+            backgroundColor: "#C4B8F4",
             transformOrigin: "right",
             transform: "scaleX(0)",
             transition: "transform 0.3s ease-in-out",
           },
           "&:hover": {
-            color: "#D4C4F0",
+            color: "#C4B8F4",
             "&::before": {
               transformOrigin: "left",
               transform: "scaleX(1)",
