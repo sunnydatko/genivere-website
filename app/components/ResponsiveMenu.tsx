@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -25,6 +25,13 @@ const navItems = [
 
 export default function ResponsiveMenu() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const handleDrawerToggle = () => setMobileOpen((prev) => !prev);
 
@@ -70,11 +77,12 @@ export default function ResponsiveMenu() {
         elevation={0}
         position="fixed"
         sx={{
-          backgroundColor: "rgba(5,5,7,0.70)",
-          backdropFilter: "blur(14px)",
-          WebkitBackdropFilter: "blur(14px)",
-          borderBottom: "1px solid rgba(255,255,255,0.06)",
+          backgroundColor: scrolled ? "rgba(5,5,7,0.80)" : "transparent",
+          backdropFilter: scrolled ? "blur(14px)" : "none",
+          WebkitBackdropFilter: scrolled ? "blur(14px)" : "none",
+          borderBottom: `1px solid ${scrolled ? "rgba(255,255,255,0.08)" : "transparent"}`,
           zIndex: 1100,
+          transition: "background-color 0.4s ease, border-color 0.4s ease",
         }}
       >
         <Toolbar>
@@ -108,7 +116,7 @@ export default function ResponsiveMenu() {
                 key={name}
                 href={href}
                 sx={{
-                  color: "grey.300",
+                  color: "common.white",
                   fontFamily: "var(--font-inter), sans-serif",
                   fontWeight: 500,
                   fontSize: 14,
