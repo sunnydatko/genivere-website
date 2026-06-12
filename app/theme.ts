@@ -12,10 +12,10 @@ const theme = createTheme({
       dark: "#3D2590",
     },
     secondary: {
-      // Warm amber — matches the candlelight in the forest scene
-      light: "#E8C48C",
-      main: "#C8905E",
-      dark: "#8C5E34",
+      // Warm gold — matches the candlelight and sparkle accents in the forest scene
+      light: "#E8CC88",
+      main: "#C8A050",
+      dark: "#8C6E30",
     },
     error: {
       light: "#FFD29A",

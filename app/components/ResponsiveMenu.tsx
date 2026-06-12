@@ -77,7 +77,7 @@ export default function ResponsiveMenu() {
         elevation={0}
         position="fixed"
         sx={{
-          backgroundColor: scrolled ? "rgba(5,5,7,0.80)" : "transparent",
+          backgroundColor: scrolled ? "rgba(8,5,16,0.82)" : "transparent",
           backdropFilter: scrolled ? "blur(14px)" : "none",
           WebkitBackdropFilter: scrolled ? "blur(14px)" : "none",
           borderBottom: `1px solid ${scrolled ? "rgba(255,255,255,0.08)" : "transparent"}`,

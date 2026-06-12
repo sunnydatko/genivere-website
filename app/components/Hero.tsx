@@ -260,19 +260,19 @@ export default function Hero() {
                 letterSpacing: "0.14em",
                 textTransform: "uppercase",
                 borderBottom: "1px solid",
-                borderColor: "rgba(90,159,212,0.3)",
+                borderColor: "rgba(168,146,216,0.3)",
                 pb: "3px",
                 transition: "color 0.3s, border-color 0.3s",
                 textDecoration: "none",
                 "&:hover": {
-                  color: "info.light",
-                  borderColor: "info.main",
+                  color: "primary.light",
+                  borderColor: "primary.light",
                 },
               }}
             >
               <Box
                 component="span"
-                sx={{ color: "info.main", fontSize: { xs: 9, md: 10 }, lineHeight: 1 }}
+                sx={{ color: "primary.light", fontSize: { xs: 9, md: 10 }, lineHeight: 1 }}
               >
                 ✦
               </Box>
@@ -289,41 +289,6 @@ export default function Hero() {
               gap: { xs: 2, md: 2.5 },
             }}
           >
-            {/* React */}
-            <Box
-              component="svg"
-              viewBox="0 0 28 28"
-              sx={{ width: 26, height: 26, opacity: 0.65, "&:hover": { opacity: 1 }, transition: "opacity 0.2s" }}
-              aria-label="React"
-            >
-              <circle cx="14" cy="14" r="2.2" fill="#61DAFB" />
-              <ellipse cx="14" cy="14" rx="12" ry="4.5" fill="none" stroke="#61DAFB" strokeWidth="1.1" />
-              <ellipse cx="14" cy="14" rx="12" ry="4.5" fill="none" stroke="#61DAFB" strokeWidth="1.1" transform="rotate(60 14 14)" />
-              <ellipse cx="14" cy="14" rx="12" ry="4.5" fill="none" stroke="#61DAFB" strokeWidth="1.1" transform="rotate(120 14 14)" />
-            </Box>
-
-            {/* TypeScript */}
-            <Box
-              component="svg"
-              viewBox="0 0 28 28"
-              sx={{ width: 26, height: 26, opacity: 0.65, "&:hover": { opacity: 1 }, transition: "opacity 0.2s" }}
-              aria-label="TypeScript"
-            >
-              <rect width="28" height="28" rx="3" fill="#3178C6" opacity="0.9" />
-              <text x="3.5" y="21" fontFamily="monospace" fontSize="14" fontWeight="bold" fill="white">TS</text>
-            </Box>
-
-            {/* Node.js */}
-            <Box
-              component="svg"
-              viewBox="0 0 28 28"
-              sx={{ width: 26, height: 26, opacity: 0.65, "&:hover": { opacity: 1 }, transition: "opacity 0.2s" }}
-              aria-label="Node.js"
-            >
-              <path d="M14 1.5 L24.5 7.5 L24.5 20.5 L14 26.5 L3.5 20.5 L3.5 7.5 Z" fill="none" stroke="#68A063" strokeWidth="1.6" />
-              <text x="9.5" y="20.5" fontFamily="monospace" fontSize="13" fontWeight="bold" fill="#68A063">N</text>
-            </Box>
-
             {/* Python */}
             <Box
               component="svg"
@@ -337,6 +302,31 @@ export default function Hero() {
               <circle cx="16.5" cy="21" r="1.2" fill="white" opacity="0.9" />
             </Box>
 
+            {/* HTML & CSS */}
+            <Box
+              component="svg"
+              viewBox="0 0 28 28"
+              sx={{ width: 26, height: 26, opacity: 0.65, "&:hover": { opacity: 1 }, transition: "opacity 0.2s" }}
+              aria-label="HTML & CSS"
+            >
+              <text x="2" y="13" fontFamily="monospace" fontSize="8.5" fontWeight="bold" fill="#E34F26">&lt;/&gt;</text>
+              <text x="3" y="23" fontFamily="monospace" fontSize="7.5" fontWeight="bold" fill="#264DE4">CSS</text>
+            </Box>
+
+            {/* Git */}
+            <Box
+              component="svg"
+              viewBox="0 0 28 28"
+              sx={{ width: 26, height: 26, opacity: 0.65, "&:hover": { opacity: 1 }, transition: "opacity 0.2s" }}
+              aria-label="Git"
+            >
+              <circle cx="7" cy="21" r="3" fill="none" stroke="#F05032" strokeWidth="1.5" />
+              <circle cx="21" cy="7" r="3" fill="none" stroke="#F05032" strokeWidth="1.5" />
+              <circle cx="21" cy="17" r="3" fill="none" stroke="#F05032" strokeWidth="1.5" />
+              <line x1="7" y1="18" x2="7" y2="10" stroke="#F05032" strokeWidth="1.5" strokeLinecap="round" />
+              <path d="M7 10 C7 7, 21 7, 21 10 L21 14" fill="none" stroke="#F05032" strokeWidth="1.5" strokeLinecap="round" />
+            </Box>
+
             {/* GitHub */}
             <Box
               component="svg"
@@ -348,6 +338,44 @@ export default function Hero() {
                 d="M14 2.8C7.92 2.8 3 7.73 3 13.82c0 4.9 3.17 9.06 7.58 10.53.55.1.75-.24.75-.54v-1.9c-3.08.67-3.73-1.48-3.73-1.48-.5-1.28-1.23-1.62-1.23-1.62-1-.69.08-.67.08-.67 1.11.08 1.7 1.14 1.7 1.14.98 1.69 2.58 1.2 3.21.92.1-.72.39-1.2.71-1.48-2.46-.28-5.04-1.23-5.04-5.48 0-1.21.43-2.2 1.14-2.97-.11-.28-.5-1.41.11-2.93 0 0 .93-.3 3.05 1.14a10.6 10.6 0 012.78-.37c.94.01 1.89.13 2.78.37 2.11-1.44 3.04-1.14 3.04-1.14.61 1.52.23 2.65.11 2.93.71.77 1.14 1.76 1.14 2.97 0 4.26-2.59 5.2-5.06 5.47.4.34.75 1.02.75 2.05 0 1.48-.01 2.68-.01 3.04 0 .3.2.64.76.53C21.84 22.87 25 18.71 25 13.82 25 7.73 20.08 2.8 14 2.8z"
                 fill="rgba(230,237,243,0.88)"
               />
+            </Box>
+
+            {/* Linux */}
+            <Box
+              component="svg"
+              viewBox="0 0 28 28"
+              sx={{ width: 26, height: 26, opacity: 0.65, "&:hover": { opacity: 1 }, transition: "opacity 0.2s" }}
+              aria-label="Linux"
+            >
+              {/* Tux body */}
+              <ellipse cx="14" cy="16" rx="7" ry="8.5" fill="rgba(230,237,243,0.88)" />
+              {/* Tux belly */}
+              <ellipse cx="14" cy="18" rx="4" ry="5.5" fill="#F5C842" opacity="0.85" />
+              {/* Tux head */}
+              <ellipse cx="14" cy="6.5" rx="5" ry="4.5" fill="rgba(230,237,243,0.88)" />
+              {/* Eyes */}
+              <circle cx="12" cy="5.5" r="1" fill="#111" />
+              <circle cx="16" cy="5.5" r="1" fill="#111" />
+              {/* Beak */}
+              <ellipse cx="14" cy="8" rx="1.8" ry="1" fill="#F5C842" opacity="0.9" />
+            </Box>
+
+            {/* Flask */}
+            <Box
+              component="svg"
+              viewBox="0 0 28 28"
+              sx={{ width: 26, height: 26, opacity: 0.65, "&:hover": { opacity: 1 }, transition: "opacity 0.2s" }}
+              aria-label="Flask"
+            >
+              {/* Flask neck */}
+              <rect x="11" y="3" width="6" height="7" rx="1" fill="none" stroke="rgba(230,237,243,0.88)" strokeWidth="1.4" />
+              {/* Flask body */}
+              <path d="M11 10 L5 22 C5 24, 7 25, 14 25 C21 25, 23 24, 23 22 L17 10 Z" fill="none" stroke="rgba(230,237,243,0.88)" strokeWidth="1.4" strokeLinejoin="round" />
+              {/* Liquid */}
+              <path d="M8 19 C8 21, 10 22.5, 14 22.5 C18 22.5, 20 21, 20 19 Z" fill="rgba(168,146,216,0.5)" />
+              {/* Bubbles */}
+              <circle cx="12" cy="17" r="1" fill="rgba(168,146,216,0.6)" />
+              <circle cx="16" cy="15.5" r="0.7" fill="rgba(168,146,216,0.5)" />
             </Box>
           </Box>
         </Box>
