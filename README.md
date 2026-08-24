@@ -18,7 +18,7 @@
 
 ## Preview
 
-![Genivere preview](public/screenshot.png)
+![Genivere preview](public/screenshot.webp)
 
 ---
 

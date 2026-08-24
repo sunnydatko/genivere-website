@@ -6,8 +6,8 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { testimonials } from "../helpers/config";
-import graceAvatar from "../images/grace.jpg";
-import danielleAvatar from "../images/danielle.png";
+import graceAvatar from "../images/grace.webp";
+import danielleAvatar from "../images/danielle.webp";
 
 const imageMap: Record<string, StaticImageData> = {
   "grace": graceAvatar,

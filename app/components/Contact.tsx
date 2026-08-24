@@ -59,6 +59,8 @@ export default function Contact() {
     setErrors(validate(fields));
   };
 
+  const fieldError = (name: keyof Fields) => (touched[name] ? errors[name] : undefined);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setTouched({ from_name: true, reply_to: true, message: true });
@@ -130,8 +132,8 @@ export default function Contact() {
               value={fields.from_name}
               onChange={handleChange}
               onBlur={handleBlur}
-              error={!!errors.from_name}
-              helperText={errors.from_name}
+              error={!!fieldError("from_name")}
+              helperText={fieldError("from_name")}
             />
             <TextField
               label="Email"
@@ -140,8 +142,8 @@ export default function Contact() {
               value={fields.reply_to}
               onChange={handleChange}
               onBlur={handleBlur}
-              error={!!errors.reply_to}
-              helperText={errors.reply_to}
+              error={!!fieldError("reply_to")}
+              helperText={fieldError("reply_to")}
             />
             <TextField
               label="Message"
@@ -151,8 +153,8 @@ export default function Contact() {
               value={fields.message}
               onChange={handleChange}
               onBlur={handleBlur}
-              error={!!errors.message}
-              helperText={errors.message}
+              error={!!fieldError("message")}
+              helperText={fieldError("message")}
             />
             <Button
               size="large"

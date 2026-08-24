@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import Image from "next/image";
 import type { StaticImageData } from "next/image";
 import Box from "@mui/material/Box";
@@ -10,9 +11,9 @@ import { blogPosts } from "../../helpers/config";
 import ResponsiveMenu from "../../components/ResponsiveMenu";
 import Footer from "../../components/Footer";
 import ReadingProgress from "../../components/ReadingProgress";
-import blog1 from "../../images/blog-1.png";
-import blog2 from "../../images/blog-2.png";
-import blog3 from "../../images/blog-3.png";
+import blog1 from "../../images/blog-1.webp";
+import blog2 from "../../images/blog-2.webp";
+import blog3 from "../../images/blog-3.webp";
 
 const imageMap: Record<string, StaticImageData> = {
   "blog-1": blog1,
@@ -22,6 +23,39 @@ const imageMap: Record<string, StaticImageData> = {
 
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const post = blogPosts.find((p) => p.slug === slug);
+  if (!post) return {};
+
+  return {
+    title: post.title,
+    description: post.excerpt,
+    keywords: post.tags,
+    alternates: {
+      canonical: `/blog/${post.slug}`,
+    },
+    openGraph: {
+      type: "article",
+      title: post.title,
+      description: post.excerpt,
+      url: `/blog/${post.slug}`,
+      publishedTime: post.date,
+      images: [{ url: imageMap[post.image].src }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: [imageMap[post.image].src],
+    },
+  };
 }
 
 const Heading = ({ children }: { children: React.ReactNode }) => (
