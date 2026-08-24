@@ -294,48 +294,6 @@ const CursorGlow = () => {
   return <div ref={ref} className="ambient-cursor-glow" style={{ opacity: 0 }} aria-hidden />;
 };
 
-/* Reveal-on-scroll ------------------------------------------------------- */
-const ScrollReveal = () => {
-  useEffect(() => {
-    const reduced = prefersReducedMotion() || !("IntersectionObserver" in window);
-    const seen = new WeakSet<Element>();
-
-    const io = reduced
-      ? null
-      : new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("is-visible");
-                io?.unobserve(entry.target);
-              }
-            });
-          },
-          { threshold: 0.15 }
-        );
-
-    const scan = () => {
-      document.querySelectorAll<HTMLElement>(".reveal").forEach((el) => {
-        if (seen.has(el)) return;
-        seen.add(el);
-        if (io) io.observe(el);
-        else el.classList.add("is-visible");
-      });
-    };
-
-    scan();
-    const mo = new MutationObserver(scan);
-    mo.observe(document.body, { childList: true, subtree: true });
-
-    return () => {
-      io?.disconnect();
-      mo.disconnect();
-    };
-  }, []);
-
-  return null;
-};
-
 /* Root ------------------------------------------------------------------- */
 export default function Ambient() {
   const [mounted, setMounted] = useState(false);
@@ -349,7 +307,6 @@ export default function Ambient() {
       <CursorGlow />
       <CursorSparkle />
       <div className="ambient-noise" aria-hidden />
-      <ScrollReveal />
     </>
   );
 }
