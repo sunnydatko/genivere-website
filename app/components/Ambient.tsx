@@ -108,6 +108,7 @@ const ParticleField = () => {
     if (!canvas || !ctx) return;
 
     const reduced = prefersReducedMotion();
+    const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     let width = 0;
     let height = 0;
@@ -115,9 +116,13 @@ const ParticleField = () => {
     let raf = 0;
     let frame = 0;
 
+    // Touch devices tend to have far less GPU/CPU headroom, and the blurred
+    // radial-gradient glow per particle is the most expensive part of this
+    // draw call — heavy enough to starve the main thread during scroll and
+    // delay other JS (like reveal-on-scroll) until the gesture stops.
     const count = () => {
       const base = Math.round((window.innerWidth * window.innerHeight) / 40000);
-      return Math.max(18, Math.min(38, base));
+      return isCoarsePointer ? Math.max(10, Math.min(16, base)) : Math.max(18, Math.min(38, base));
     };
 
     const init = () => {
@@ -201,10 +206,29 @@ const ParticleField = () => {
       resizeTimer = window.setTimeout(init, 200);
     };
     window.addEventListener("resize", onResize);
+
+    // Pausing this canvas during an active scroll frees the main thread on
+    // touch devices for the duration that matters most — while the user is
+    // actually scrolling — so other scroll-driven work isn't competing with it.
+    let scrollResumeTimer = 0;
+    const onScroll = isCoarsePointer && !reduced
+      ? () => {
+          if (!scrollResumeTimer) cancelAnimationFrame(raf);
+          window.clearTimeout(scrollResumeTimer);
+          scrollResumeTimer = window.setTimeout(() => {
+            scrollResumeTimer = 0;
+            loop();
+          }, 150);
+        }
+      : null;
+    if (onScroll) window.addEventListener("scroll", onScroll, { passive: true });
+
     return () => {
       cancelAnimationFrame(raf);
       window.clearTimeout(resizeTimer);
+      window.clearTimeout(scrollResumeTimer);
       window.removeEventListener("resize", onResize);
+      if (onScroll) window.removeEventListener("scroll", onScroll);
     };
   }, []);
 
